@@ -7,7 +7,7 @@ program.version('1.0.0');
 
 // 'create' command
 program
-  .command('create lemon-pie')
+  .command('lemon-pie')
   .description('Create a new backend environment')
   .action(createBackendEnvironment);
 
