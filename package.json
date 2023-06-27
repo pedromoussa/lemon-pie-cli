@@ -1,0 +1,33 @@
+{
+  "name": "lemon-pie-cli",
+  "version": "1.0.0",
+  "description": "create new backend environment",
+  "main": "lemon-pie.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedromoussa/lemon-pie-cli.git"
+  },
+  "keywords": [
+    "backend",
+    "environment",
+    "CLI",
+    "tool"
+  ],
+  "author": "Pedro Moussa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pedromoussa/lemon-pie-cli/issues"
+  },
+  "homepage": "https://github.com/pedromoussa/lemon-pie-cli#readme",
+  "dependencies": {
+    "commander": "^11.0.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "sequelize": "^6.32.1",
+    "sqlite3": "^5.1.6"
+  }
+}
