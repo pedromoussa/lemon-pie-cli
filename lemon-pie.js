@@ -3,11 +3,11 @@
 const { program } = require('commander');
 const createBackendEnvironment = require('./template');
 
-program.version('1.0.0');
+program.version('1.0.1');
 
 // 'create' command
 program
-  .command('lemon-pie')
+  .command('create')
   .description('Create a new backend environment')
   .action(createBackendEnvironment);
 
