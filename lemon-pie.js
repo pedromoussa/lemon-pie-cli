@@ -3,7 +3,7 @@
 const { program } = require('commander');
 const createBackendEnvironment = require('./template');
 
-program.version('1.0.2');
+program.version('1.0.3');
 
 // 'create' command
 program
