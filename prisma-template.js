@@ -1,0 +1,3 @@
+/**
+ * add prisma template here
+ */
