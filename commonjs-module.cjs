@@ -1,7 +1,7 @@
 const { program } = require('commander');
 module.exports.program = program;
 
-module.exports.createEnvironment = function (orm) {
+module.exports.createEnvironment = async function (orm) {
   let templatePath;
 
   if (orm === 'Prisma') {
@@ -10,6 +10,6 @@ module.exports.createEnvironment = function (orm) {
     templatePath = require.resolve('./sequelize-template');
   }
 
-  const createEnvironment = require(templatePath);
+  const createEnvironment = await import(templatePath);
   createEnvironment();
 };
