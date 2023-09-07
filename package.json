@@ -1,8 +1,7 @@
 {
   "name": "lemon-pie-cli",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Create backend environment with one of two possible ORMs",
-  "type": "module",
   "main": "lemon-pie.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -31,7 +30,7 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "fs": "^0.0.1-security",
-    "inquirer": "^9.2.10",
+    "inquirer": "^8.2.6",
     "sequelize": "^6.32.1",
     "sqlite3": "^5.1.6"
   }
