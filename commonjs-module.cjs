@@ -3,7 +3,13 @@ module.exports.program = program;
 
 const path = require('path');
 module.exports.createEnvironment = async function (templatePath) {
-  const absolutePath = `file://${path.join(__dirname, templatePath).replace(/\\/g, '/')}`;
-  const createEnvironment = await import(absolutePath);
-  createEnvironment();
+  const templateFilePath = path.join(__dirname, templatePath);
+
+  try {
+    const { default: createEnvironment } = await import(`file://${templateFilePath}`);
+
+    createEnvironment();
+  } catch (error) {
+    console.error(error);
+  }
 };
