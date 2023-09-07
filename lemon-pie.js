@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const { program } = require('commander');
-const inquirer = require('inquirer');
+import inquirer from 'inquirer';
 
 program.version('1.0.4');
 
