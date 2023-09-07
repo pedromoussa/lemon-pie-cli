@@ -7,7 +7,7 @@ program.version('1.0.4');
 
 program
 	.command('create')
-	.description('Create a new backend environment')
+	.description('Creates a new backend environment')
 	.action(() => {
 		inquirer
 			.prompt([
@@ -19,7 +19,7 @@ program
 				},
 			])
 			.then((answers) => {
-				const templatePath = answers.orm === 'prisma' ? './prisma-template' : './sequelize-template';
+				const templatePath = answers.orm === 'Prisma' ? './prisma-template' : './sequelize-template';
 				const createEnvironment = require(templatePath);
 				createEnvironment();
 			})
