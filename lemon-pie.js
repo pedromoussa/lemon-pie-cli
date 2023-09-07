@@ -1,11 +1,9 @@
 #!/usr/bin/env node
 
-'use strict';
-
 const { program } = require('commander');
-const inquirer = require('inquirer');
+import inquirer from 'inquirer';
 
-program.version('1.0.6');
+program.version('1.0.7');
 
 program
 	.command('create')
