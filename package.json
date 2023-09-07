@@ -1,6 +1,6 @@
 {
   "name": "lemon-pie-cli",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "create new backend environment",
   "main": "lemon-pie.js",
   "scripts": {
