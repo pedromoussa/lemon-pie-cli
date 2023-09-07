@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-import program from './commonjs-module.js';
+import program from './commonjs-module.cjs';
 import inquirer from 'inquirer';
 
-program.version('1.0.11');
+program.version('1.0.12');
 
 program
 	.command('create')
