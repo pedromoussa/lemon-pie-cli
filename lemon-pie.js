@@ -3,7 +3,7 @@
 import program from './commonjs-module.cjs';
 import inquirer from 'inquirer';
 
-program.version('1.0.13');
+program.version('1.0.14');
 
 program
 	.command('create')
@@ -20,8 +20,9 @@ program
 			])
 			.then((answers) => {
 				const templatePath = answers.orm === 'Prisma' ? './prisma-template' : './sequelize-template';
-				const createEnvironment = require(templatePath);
-				createEnvironment();
+				// const createEnvironment = require(templatePath);
+				// createEnvironment();
+				program.createEnvironment(templatePath);
 			})
 	});
 
