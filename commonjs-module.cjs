@@ -1,15 +1,9 @@
 const { program } = require('commander');
 module.exports.program = program;
 
-module.exports.createEnvironment = async function (orm) {
-  let templatePath;
-
-  if (orm === 'Prisma') {
-    templatePath = require.resolve('./prisma-template');
-  } else {
-    templatePath = require.resolve('./sequelize-template');
-  }
-
-  const createEnvironment = await import(templatePath);
+const path = require('path');
+module.exports.createEnvironment = async function (templatePath) {
+  const absolutePath = `file://${path.join(__dirname, templatePath)}`;
+  const createEnvironment = await import(absolutePath);
   createEnvironment();
 };
