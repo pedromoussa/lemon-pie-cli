@@ -3,7 +3,7 @@
 import commonjsModule from './commonjs-module.cjs';
 import inquirer from 'inquirer';
 
-commonjsModule.program.version('1.0.18');
+commonjsModule.program.version('1.0.19');
 
 commonjsModule.program
 	.command('create')
@@ -19,10 +19,11 @@ commonjsModule.program
 				},
 			])
 			.then((answers) => {
-				const templatePath = answers.orm === 'Prisma' ? './prisma-template' : './sequelize-template';
+				// const templatePath = answers.orm === 'Prisma' ? './prisma-template' : './sequelize-template';
 				// const createEnvironment = require(templatePath);
 				// createEnvironment();
-				commonjsModule.createEnvironment(templatePath);
+				// commonjsModule.createEnvironment(templatePath);
+				commonjsModule.createEnvironment(answers.orm);
 			})
 	});
 
