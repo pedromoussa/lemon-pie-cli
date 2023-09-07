@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import program from './commonjs-module.js';
+import { program } from './commonjs-module.js';
 import inquirer from 'inquirer';
 
 program.version('1.0.8');
