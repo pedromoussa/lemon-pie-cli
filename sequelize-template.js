@@ -175,12 +175,6 @@ const createSequelizeEnvironment = async (projectName) => {
 
   await createAllDirectories();
   await createAllFiles();
-
-  try {
-    await fs.unlink(path.join(__dirname, "template.js"));
-  } catch (err) {
-    console.error(err);
-  }
 };
 
 module.exports = createSequelizeEnvironment;

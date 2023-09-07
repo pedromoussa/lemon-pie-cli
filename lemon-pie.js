@@ -3,7 +3,7 @@
 const { program } = require('commander');
 const inquirer = require('inquirer');
 
-program.version('1.1.8');
+program.version('1.1.9');
 
 program
 	.command('create')

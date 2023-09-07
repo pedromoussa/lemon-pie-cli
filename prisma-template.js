@@ -101,12 +101,6 @@ const createPrismaEnvironment = async (projectName) => {
   exec("cd ./src && npx prisma init");
   exec("cp .env.example .env");
   await createAllFiles();
-
-  try {
-    await fsPromise.unlink(path.join(__dirname, "template.js"));
-  } catch (err) {
-    console.error(err);
-  }
 };
 
 module.exports = createPrismaEnvironment;
