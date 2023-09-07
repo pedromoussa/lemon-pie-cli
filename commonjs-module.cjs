@@ -1,2 +1,2 @@
 const { program } = require('commander');
-export default program;
+module.exports = program;

@@ -3,7 +3,7 @@
 import program from './commonjs-module.cjs';
 import inquirer from 'inquirer';
 
-program.version('1.0.12');
+program.version('1.0.13');
 
 program
 	.command('create')
