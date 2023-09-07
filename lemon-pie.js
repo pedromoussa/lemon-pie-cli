@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
-import program from './commonjs-module.cjs';
+import commonjsModule from './commonjs-module.cjs';
 import inquirer from 'inquirer';
 
-program.version('1.0.14');
+commonjsModule.program.version('1.0.15');
 
-program
+commonjsModule.program
 	.command('create')
 	.description('Creates a new backend environment')
 	.action(() => {
@@ -22,8 +22,8 @@ program
 				const templatePath = answers.orm === 'Prisma' ? './prisma-template' : './sequelize-template';
 				// const createEnvironment = require(templatePath);
 				// createEnvironment();
-				program.createEnvironment(templatePath);
+				commonjsModule.createEnvironment(templatePath);
 			})
 	});
 
-program.parse(process.argv);
+commonjsModule.program.parse(process.argv);
