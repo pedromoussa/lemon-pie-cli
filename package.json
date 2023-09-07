@@ -1,6 +1,6 @@
 {
   "name": "lemon-pie-cli",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "Create backend environment with one of two possible ORMs",
   "main": "lemon-pie.js",
   "scripts": {

@@ -110,7 +110,3 @@ const createPrismaEnvironment = async (projectName) => {
 };
 
 module.exports = createPrismaEnvironment;
-
-(async () => {
-  await createPrismaEnvironment();
-})();
