@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-const { program } = require('commander');
+import program from './commonjs-module.js';
 import inquirer from 'inquirer';
 
-program.version('1.0.7');
+program.version('1.0.8');
 
 program
 	.command('create')
