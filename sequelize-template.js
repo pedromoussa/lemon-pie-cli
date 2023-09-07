@@ -170,7 +170,7 @@ app.listen(port, () => {
   }
 };
 
-const createBackendEnvironment = async (projectName) => {
+const createSequelizeEnvironment = async (projectName) => {
   console.log(`Creating backend environment for ${projectName}...`);
 
   await createAllDirectories();
@@ -183,4 +183,4 @@ const createBackendEnvironment = async (projectName) => {
   }
 };
 
-module.exports = createBackendEnvironment;
+module.exports = createSequelizeEnvironment;

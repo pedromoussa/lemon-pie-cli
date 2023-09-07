@@ -2,7 +2,7 @@ const { exec } = require("child_process");
 const fsPromise = require('fs').promises;
 const path = require('path');
 
-const createAllDirectory = async () => {
+const createAllDirectories = async () => {
   try {
     await fsPromise.mkdir('templates/', { recursive: true });
     await fsPromise.mkdir('src/config/', { recursive: true });
@@ -90,17 +90,27 @@ console.log(\`\${process.env.APP_NAME} app listening at http://localhost:\${port
   }
   return
 }
-(async () => {
-  await createAllDirectory();
+
+const createPrismaEnvironment = async (projectName) => {
+  console.log(`Creating Prisma environment for ${projectName}...`);
+
+  await createAllDirectories();
   exec("npm init -y");
   exec("npm i express dotenv prisma cors @prisma/client typescript ts-node @types/express --save-dev");
   exec("npx tsc --init");
   exec("cd ./src && npx prisma init");
   exec("cp .env.example .env");
   await createAllFiles();
+
   try {
     await fsPromise.unlink(path.join(__dirname, "template.js"));
   } catch (err) {
-    console.log(err + "!");
+    console.error(err);
   }
+};
+
+module.exports = createPrismaEnvironment;
+
+(async () => {
+  await createPrismaEnvironment();
 })();

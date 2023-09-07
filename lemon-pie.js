@@ -3,7 +3,7 @@
 const { program } = require('commander');
 const inquirer = require('inquirer');
 
-program.version('1.1.6');
+program.version('1.1.7');
 
 program
 	.command('create')
@@ -18,11 +18,17 @@ program
 					choices: ['Sequelize', 'Prisma']
 				},
 			])
-			.then((answers) => {
-				const templatePath = answers.orm === 'Prisma' ? './prisma-template' : './sequelize-template';
-				const createEnvironment = require(templatePath);
-				createEnvironment();
-			})
+      .then((answers) => {
+        if (answers.orm === 'Prisma') {
+          const createPrismaEnvironment = require('./prisma-template');
+          createPrismaEnvironment();
+        } else if (answers.orm === 'Sequelize') {
+          const createSequelizeEnvironment = require('./sequelize-template');
+          createSequelizeEnvironment();
+        } else {
+          console.error('Invalid ORM choice');
+        }
+      })
 	});
 
 program.parse(process.argv);
