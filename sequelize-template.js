@@ -176,7 +176,7 @@ const createSequelizeEnvironment = async (projectName) => {
   exec("npm init -y");
   
   const packageJsonPath = path.join(process.cwd(), 'package.json');
-  const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
+  const packageJson = JSON.parse(await fs.readFileSync(packageJsonPath, 'utf8'));
 
   packageJson.name = projectName;
 
