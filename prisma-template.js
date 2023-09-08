@@ -108,9 +108,8 @@ const createPrismaEnvironment = async (projectName) => {
   await execAsync("npm i express dotenv prisma cors @prisma/client typescript ts-node @types/express --save-dev");
   await execAsync("npx tsc --init");
   await execAsync("cd ./src && npx prisma init");
-  await execAsync("cp .env.example .env");
-
   await createAllFiles();
+  await execAsync("cp .env.example .env");
 };
 
 module.exports = createPrismaEnvironment;
