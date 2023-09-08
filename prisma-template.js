@@ -98,7 +98,7 @@ const createPrismaEnvironment = async (projectName) => {
   exec("npm init -y");
 
   const packageJsonPath = path.join(process.cwd(), 'package.json');
-  const packageJson = JSON.parse(await fsPromise.readFileSync(packageJsonPath, 'utf8'));
+  const packageJson = JSON.parse(await fsPromise.readFile(packageJsonPath, 'utf8'));
 
   packageJson.name = projectName;
 
