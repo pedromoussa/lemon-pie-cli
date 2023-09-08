@@ -173,6 +173,15 @@ app.listen(port, () => {
 const createSequelizeEnvironment = async (projectName) => {
   console.log(`Creating backend environment for ${projectName}...`);
 
+  exec("npm init -y");
+  
+  const packageJsonPath = path.join(process.cwd(), 'package.json');
+  const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
+
+  packageJson.name = projectName;
+
+  await fs.writeFile(packageJsonPath, JSON.stringify(packageJson, null, 2));
+
   await createAllDirectories();
   await createAllFiles();
 };

@@ -96,6 +96,15 @@ const createPrismaEnvironment = async (projectName) => {
 
   await createAllDirectories();
   exec("npm init -y");
+
+  const packageJsonPath = path.join(process.cwd(), 'package.json');
+  const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
+
+  packageJson.name = projectName;
+
+  await fsPromise.writeFile(packageJsonPath, JSON.stringify(packageJson, null, 2));
+
+
   exec("npm i express dotenv prisma cors @prisma/client typescript ts-node @types/express --save-dev");
   exec("npx tsc --init");
   exec("cd ./src && npx prisma init");
