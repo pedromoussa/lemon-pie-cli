@@ -11,4 +11,5 @@
 `lemon-pie create`  
 
 From there, you'll get prompted to choose which ORM you'd like: Sequelize or Prisma.  
-Pick the desired ORM and the environment setup will begin.
+Pick the desired ORM, decide on a name (defaulted to myproject) and the environment setup will begin.  
+For the Prisma environment, the setup will run some aditional commands and it may have a longer setup time.
