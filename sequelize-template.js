@@ -1,5 +1,7 @@
 const fs = require('fs').promises;
 const path = require('path');
+const util = require('util');
+const execAsync = util.promisify(require('child_process').exec);
 
 const createAllDirectories = async () => {
   try {
@@ -173,7 +175,7 @@ app.listen(port, () => {
 const createSequelizeEnvironment = async (projectName) => {
   console.log(`Creating backend environment for ${projectName}...`);
 
-  exec("npm init -y");
+  await execAsync("npm init -y");
   
   const packageJsonPath = path.join(process.cwd(), 'package.json');
   const packageJson = JSON.parse(await fs.readFile(packageJsonPath, 'utf8'));

@@ -1,4 +1,5 @@
-const { exec } = require("child_process");
+const util = require('util');
+const execAsync = util.promisify(require('child_process').exec);
 const fsPromise = require('fs').promises;
 const path = require('path');
 
@@ -95,7 +96,7 @@ const createPrismaEnvironment = async (projectName) => {
   console.log(`Creating Prisma environment for ${projectName}...`);
 
   await createAllDirectories();
-  exec("npm init -y");
+  await execAsync("npm init -y");
 
   const packageJsonPath = path.join(process.cwd(), 'package.json');
   const packageJson = JSON.parse(await fsPromise.readFile(packageJsonPath, 'utf8'));
@@ -104,11 +105,11 @@ const createPrismaEnvironment = async (projectName) => {
 
   await fsPromise.writeFile(packageJsonPath, JSON.stringify(packageJson, null, 2));
 
+  await execAsync("npm i express dotenv prisma cors @prisma/client typescript ts-node @types/express --save-dev");
+  await execAsync("npx tsc --init");
+  await execAsync("cd ./src && npx prisma init");
+  await execAsync("cp .env.example .env");
 
-  exec("npm i express dotenv prisma cors @prisma/client typescript ts-node @types/express --save-dev");
-  exec("npx tsc --init");
-  exec("cd ./src && npx prisma init");
-  exec("cp .env.example .env");
   await createAllFiles();
 };
 
